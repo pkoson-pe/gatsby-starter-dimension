@@ -26,8 +26,6 @@ class IndexPage extends React.Component {
       this.setState({ loading: '' })
     }, 100)
     document.addEventListener('mousedown', this.handleClickOutside)
-
-    const isBrowser = typeof window !== `undefined`
   }
 
   componentWillUnmount() {
@@ -88,7 +86,8 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    if (window?.provenExpert) {
+    const isBrowser = typeof window !== `undefined`
+    if (isBrowser && window?.provenExpert) {
       window.provenExpert.trustSeal({
         widgetId: '8974f49c-1298-468a-8678-fc936136e306',
         language: 'en-US',
