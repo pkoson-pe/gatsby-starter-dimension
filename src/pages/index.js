@@ -22,8 +22,24 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
+    const isBrowser = typeof window !== `undefined`
     this.timeoutId = setTimeout(() => {
       this.setState({ loading: '' })
+      if (isBrowser && window?.provenExpert) {
+        window.provenExpert.trustSeal({
+          widgetId: '8974f49c-1298-468a-8678-fc936136e306',
+          language: 'en-US',
+          bannerColor: '#0DB1CD',
+          textColor: '#FFFFFF',
+          showReviews: true,
+          hideDate: false,
+          hideName: false,
+          bottom: '130px',
+          hasUnPublished: false,
+          hasReviews: true,
+          googleStars: false,
+        })
+      }
     }, 100)
     document.addEventListener('mousedown', this.handleClickOutside)
   }
@@ -86,22 +102,6 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    const isBrowser = typeof window !== `undefined`
-    if (isBrowser && window?.provenExpert) {
-      window.provenExpert.trustSeal({
-        widgetId: '8974f49c-1298-468a-8678-fc936136e306',
-        language: 'en-US',
-        bannerColor: '#0DB1CD',
-        textColor: '#FFFFFF',
-        showReviews: true,
-        hideDate: false,
-        hideName: false,
-        bottom: '130px',
-        hasUnPublished: false,
-        hasReviews: true,
-        googleStars: false,
-      })
-    }
     return (
       <Layout location={this.props.location}>
         <div
