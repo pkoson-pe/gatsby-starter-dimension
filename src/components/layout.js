@@ -39,7 +39,7 @@ const Layout = ({ children, location }) => {
             ]}
           >
             <html lang="en" />
-            <script src="https://www.stage.provenexpert.dev/widgets/trustSeal.js"></script>
+            <script src="https://www.stage.provenexpert.dev/seals/proseal.js"></script>
           </Helmet>
           {content}
         </>
