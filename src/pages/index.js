@@ -26,7 +26,7 @@ class IndexPage extends React.Component {
     this.timeoutId = setTimeout(() => {
       this.setState({ loading: '' })
       if (isBrowser && window?.provenExpert) {
-        window.provenExpert.trustSeal({
+        window.provenExpert.proSeal({
           widgetId: '8974f49c-1298-468a-8678-fc936136e306',
           language: 'en-US',
           bannerColor: '#0DB1CD',
