@@ -37,7 +37,7 @@ class IndexPage extends React.Component {
           bottom: '130px',
           hasUnPublished: false,
           hasReviews: true,
-          googleStars: false,
+          googleStars: true,
         })
       }
     }, 100)
