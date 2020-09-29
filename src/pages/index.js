@@ -27,7 +27,7 @@ class IndexPage extends React.Component {
       this.setState({ loading: '' })
       if (isBrowser && window?.provenExpert) {
         window.provenExpert.proSeal({
-          widgetId: 'f4bb10a2-0af2-441b-8684-05bfd26e1e03',
+          widgetId: 'd285322a-45f3-465b-bb9c-8624f53337d5',
           language: 'en-US',
           bannerColor: '#0DB1CD',
           textColor: '#FFFFFF',
