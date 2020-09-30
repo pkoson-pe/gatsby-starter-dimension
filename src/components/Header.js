@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const widgets = [
+  { name: 'profile0', value: 'f4bb10a2-0af2-441b-8684-05bfd26e1e03' },
   { name: 'profile1', value: 'ee48bfd6-f320-4e85-939a-c907a4175f65' },
   { name: 'profile2', value: '11b0bd73-6bd0-402e-b4ed-3aeb9ff0a93c' },
   { name: 'profile3', value: '11b0bd73-6bd0-402e-b4ed-3aeb9ff0a93c' },
@@ -22,7 +23,7 @@ const Header = props => (
         <p>choose widget id</p>
         <select
           onChange={props.onSelectChange}
-          defaultValue="ee48bfd6-f320-4e85-939a-c907a4175f65"
+          defaultValue="f4bb10a2-0af2-441b-8684-05bfd26e1e03"
         >
           {widgets.map(item => (
             <option value={item.value}>
