@@ -1,6 +1,16 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
+const widgets = [
+  { name: 'profile1', value: 'ee48bfd6-f320-4e85-939a-c907a4175f65' },
+  { name: 'profile2', value: '11b0bd73-6bd0-402e-b4ed-3aeb9ff0a93c' },
+  { name: 'profile3', value: '11b0bd73-6bd0-402e-b4ed-3aeb9ff0a93c' },
+  { name: 'profile4', value: '84dec08b-6e54-447d-819b-1fb3f8ef2a5d' },
+  { name: 'profile5', value: 'dfd94030-7080-4faa-8007-d3f0a0115fdc' },
+  { name: 'profile6', value: '10ad1e09-9f25-4795-aa3c-24b519e36c82' },
+  { name: 'profile7', value: 'c1148361-ebb4-4c4b-983d-2a66091c2203' },
+]
+
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="logo">
@@ -8,14 +18,18 @@ const Header = props => (
     </div>
     <div className="content">
       <div className="inner">
-        <h1>Dimension</h1>
-        <p>
-          A fully responsive site template designed by{' '}
-          <a href="https://html5up.net">HTML5 UP</a> and released
-          <br />
-          for free under the{' '}
-          <a href="https://html5up.net/license">Creative Commons</a> license.
-        </p>
+        <h1>Widget ID</h1>
+        <p>choose widget id</p>
+        <select
+          onChange={props.onSelectChange}
+          defaultValue="ee48bfd6-f320-4e85-939a-c907a4175f65"
+        >
+          {widgets.map(item => (
+            <option value={item.value}>
+              {item.name} - {item.value}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
     <nav>

@@ -27,7 +27,7 @@ class IndexPage extends React.Component {
       this.setState({ loading: '' })
       if (isBrowser && window?.provenExpert) {
         window.provenExpert.proSeal({
-          widgetId: 'd285322a-45f3-465b-bb9c-8624f53337d5',
+          widgetId: 'ee48bfd6-f320-4e85-939a-c907a4175f65',
           language: 'en-US',
           bannerColor: '#0DB1CD',
           textColor: '#FFFFFF',
@@ -101,32 +101,52 @@ class IndexPage extends React.Component {
     }
   }
 
+  onSelectChange = ({ target: { value } }) => {
+    window.provenExpert.proSeal({
+      widgetId: value,
+      language: 'en-US',
+      bannerColor: '#0DB1CD',
+      textColor: '#FFFFFF',
+      showReviews: true,
+      hideDate: false,
+      hideName: false,
+      bottom: '130px',
+      hasUnPublished: false,
+      hasReviews: true,
+      googleStars: true,
+    })
+  }
+
   render() {
     return (
-      <Layout location={this.props.location}>
-        <div
-          className={`body ${this.state.loading} ${
-            this.state.isArticleVisible ? 'is-article-visible' : ''
-          }`}
-        >
-          <div id="wrapper">
-            <Header
-              onOpenArticle={this.handleOpenArticle}
-              timeout={this.state.timeout}
-            />
-            <Main
-              isArticleVisible={this.state.isArticleVisible}
-              timeout={this.state.timeout}
-              articleTimeout={this.state.articleTimeout}
-              article={this.state.article}
-              onCloseArticle={this.handleCloseArticle}
-              setWrapperRef={this.setWrapperRef}
-            />
-            <Footer timeout={this.state.timeout} />
+      <>
+        <Layout location={this.props.location}>
+          tutaj będzie header
+          <div
+            className={`body ${this.state.loading} ${
+              this.state.isArticleVisible ? 'is-article-visible' : ''
+            }`}
+          >
+            <div id="wrapper">
+              <Header
+                onOpenArticle={this.handleOpenArticle}
+                timeout={this.state.timeout}
+                onSelectChange={this.onSelectChange}
+              />
+              <Main
+                isArticleVisible={this.state.isArticleVisible}
+                timeout={this.state.timeout}
+                articleTimeout={this.state.articleTimeout}
+                article={this.state.article}
+                onCloseArticle={this.handleCloseArticle}
+                setWrapperRef={this.setWrapperRef}
+              />
+              <Footer timeout={this.state.timeout} />
+            </div>
+            <div id="bg"></div>
           </div>
-          <div id="bg"></div>
-        </div>
-      </Layout>
+        </Layout>
+      </>
     )
   }
 }
