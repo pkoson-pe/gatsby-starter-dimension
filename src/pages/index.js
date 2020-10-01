@@ -14,6 +14,8 @@ class IndexPage extends React.Component {
       articleTimeout: false,
       article: '',
       loading: 'is-loading',
+      currentId: 'f4bb10a2-0af2-441b-8684-05bfd26e1e03',
+      currentLanguage: 'en-US',
     }
     this.handleOpenArticle = this.handleOpenArticle.bind(this)
     this.handleCloseArticle = this.handleCloseArticle.bind(this)
@@ -27,8 +29,8 @@ class IndexPage extends React.Component {
       this.setState({ loading: '' })
       if (isBrowser && window?.provenExpert) {
         window.provenExpert.proSeal({
-          widgetId: 'f4bb10a2-0af2-441b-8684-05bfd26e1e03',
-          language: 'en-US',
+          widgetId: this.state.currentId,
+          language: this.state.currentLanguage,
           bannerColor: '#0DB1CD',
           textColor: '#FFFFFF',
           showReviews: true,
@@ -102,9 +104,28 @@ class IndexPage extends React.Component {
   }
 
   onSelectChange = ({ target: { value } }) => {
+    this.setState({ currentId: value })
     window.provenExpert.proSeal({
       widgetId: value,
-      language: 'en-US',
+      language: this.state.currentLanguage,
+      bannerColor: '#0DB1CD',
+      textColor: '#FFFFFF',
+      showReviews: true,
+      hideDate: false,
+      hideName: false,
+      bottom: '130px',
+      hasUnPublished: false,
+      hasReviews: true,
+      googleStars: true,
+    })
+  }
+
+  onLanguageChange = ({ target: { value } }) => {
+    this.setState({ currentLanguage: value })
+    debugger
+    window.provenExpert.proSeal({
+      widgetId: this.state.currentId,
+      language: value,
       bannerColor: '#0DB1CD',
       textColor: '#FFFFFF',
       showReviews: true,
@@ -132,6 +153,7 @@ class IndexPage extends React.Component {
                 onOpenArticle={this.handleOpenArticle}
                 timeout={this.state.timeout}
                 onSelectChange={this.onSelectChange}
+                onLanguageChange={this.onLanguageChange}
               />
               <Main
                 isArticleVisible={this.state.isArticleVisible}

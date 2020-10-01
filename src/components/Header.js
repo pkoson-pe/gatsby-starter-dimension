@@ -12,6 +12,11 @@ const widgets = [
   { name: 'profile7', value: 'c1148361-ebb4-4c4b-983d-2a66091c2203' },
 ]
 
+const languages = [
+  { name: 'english', value: 'en-US' },
+  { name: 'german', value: 'de-DE' },
+]
+
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="logo">
@@ -29,6 +34,13 @@ const Header = props => (
             <option value={item.value}>
               {item.name} - {item.value}
             </option>
+          ))}
+        </select>
+        <h1>Widget language</h1>
+        <p>choose widget language</p>
+        <select onChange={props.onLanguageChange} defaultValue="en-US">
+          {languages.map(item => (
+            <option value={item.value}>{item.name}</option>
           ))}
         </select>
       </div>
