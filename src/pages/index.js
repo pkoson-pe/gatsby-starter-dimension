@@ -122,7 +122,6 @@ class IndexPage extends React.Component {
 
   onLanguageChange = ({ target: { value } }) => {
     this.setState({ currentLanguage: value })
-    debugger
     window.provenExpert.proSeal({
       widgetId: this.state.currentId,
       language: value,

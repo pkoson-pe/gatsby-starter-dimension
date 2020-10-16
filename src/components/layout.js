@@ -40,6 +40,9 @@ const Layout = ({ children, location }) => {
                 name: 'google-site-verification',
                 content: 'LBRe4vhEFj0Tcbc6wjXIAsnkTT4henh8Bdf46RUGKtk',
               },
+              { 'http-equiv': 'cache-control', content: 'no-cache' },
+              { 'http-equiv': 'expires', content: '0' },
+              { 'http-equiv': 'pragma', content: 'no-cache' },
             ]}
           >
             <html lang="en" />
