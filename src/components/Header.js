@@ -10,6 +10,13 @@ const widgets = [
   { name: 'profile5', value: 'dfd94030-7080-4faa-8007-d3f0a0115fdc' },
   { name: 'profile6', value: '10ad1e09-9f25-4795-aa3c-24b519e36c82' },
   { name: 'profile7', value: 'c1148361-ebb4-4c4b-983d-2a66091c2203' },
+  { name: 'profile8', value: 'ab753382-8548-4c87-a56f-a3c224efdd64' },
+  { name: 'profile9', value: '0210d145-1cf7-4dc9-9d8e-5effe7533076' },
+  { name: 'profile10', value: 'ce78f05e-3a19-42f5-93d0-e0bc119a68d5' },
+  { name: 'profile11', value: 'eca4dce0-fcf5-43d6-a12c-f31791670ec0' },
+  { name: 'profile12', value: '43d4bdc0-b1a4-42da-8038-859e630d9f5a' },
+  { name: 'profile13', value: 'dbcf129c-e95d-493a-b4f1-22a9f21e7667' },
+  { name: 'profile14', value: '49af6a63-b71d-4446-8aa3-3234c6ce4bb0' },
 ]
 
 const languages = [
