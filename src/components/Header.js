@@ -2,6 +2,34 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const widgets = [
+  {
+    name: 'Scenario A paid plan',
+    value: '11b0bd73-6bd0-402e-b4ed-3aeb9ff0a93c',
+  },
+
+  {
+    name: 'Scenario A free plan',
+    value: 'c1148361-ebb4-4c4b-983d-2a66091c2203',
+  },
+
+  {
+    name: 'Scenario A Proven Expert only',
+    value: '37a03660-7d7f-44d1-9969-3c611598197a',
+  },
+
+  {
+    name: 'Scenario A External Source only',
+    value: 'eca4dce0-fcf5-43d6-a12c-f31791670ec0',
+  },
+
+  { name: 'Scenario B', value: '10ad1e09-9f25-4795-aa3c-24b519e36c82' },
+
+  { name: 'Scenario C', value: '84dec08b-6e54-447d-819b-1fb3f8ef2a5d' },
+
+  { name: 'Scenario A MPS', value: '6a8976b3-541e-46e4-b4d3-da56b5f82a20' },
+
+  { name: 'Scenario B MPS', value: '8624c81d-e71d-4289-be4a-74bfa0aa2baf' },
+
   { name: 'profile0', value: 'f4bb10a2-0af2-441b-8684-05bfd26e1e03' },
   { name: 'profile1', value: 'ee48bfd6-f320-4e85-939a-c907a4175f65' },
   { name: 'profile2', value: '11b0bd73-6bd0-402e-b4ed-3aeb9ff0a93c' },
@@ -33,10 +61,7 @@ const Header = props => (
       <div className="inner">
         <h1>Widget ID</h1>
         <p>choose widget id</p>
-        <select
-          onChange={props.onSelectChange}
-          defaultValue="f4bb10a2-0af2-441b-8684-05bfd26e1e03"
-        >
+        <select onChange={props.onSelectChange} defaultValue={widgets[0].value}>
           {widgets.map(item => (
             <option value={item.value}>
               {item.name} - {item.value}
