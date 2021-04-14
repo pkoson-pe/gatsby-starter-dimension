@@ -26,7 +26,7 @@ const widgets = [
 
   { name: 'Scenario C', value: '84dec08b-6e54-447d-819b-1fb3f8ef2a5d' },
 
-  { name: 'Scenario A MPS', value: '6a8976b3-541e-46e4-b4d3-da56b5f82a20' },
+  { name: 'Scenario A MPS', value: 'aca5fd33-ac33-443b-8911-f5e3ab568e31' },
 
   { name: 'Scenario B MPS', value: '8624c81d-e71d-4289-be4a-74bfa0aa2baf' },
 
