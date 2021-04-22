@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useRef } from 'react'
 
 const widgets = [
   {
@@ -52,73 +52,96 @@ const languages = [
   { name: 'german', value: 'de-DE' },
 ]
 
-const Header = props => (
-  <header id="header" style={props.timeout ? { display: 'none' } : {}}>
-    <div className="logo">
-      <span className="icon fa-diamond"></span>
-    </div>
-    <div className="content">
-      <div className="inner">
-        <h1>Widget ID</h1>
-        <p>choose widget id</p>
-        <select onChange={props.onSelectChange} defaultValue={widgets[0].value}>
-          {widgets.map(item => (
-            <option value={item.value}>
-              {item.name} - {item.value}
-            </option>
-          ))}
-        </select>
-        <h1>Widget language</h1>
-        <p>choose widget language</p>
-        <select onChange={props.onLanguageChange} defaultValue="en-US">
-          {languages.map(item => (
-            <option value={item.value}>{item.name}</option>
-          ))}
-        </select>
+const Header = props => {
+  const ref = useRef()
+  return (
+    <header id="header" style={props.timeout ? { display: 'none' } : {}}>
+      <div className="logo">
+        <span className="icon fa-diamond"></span>
       </div>
-    </div>
-    <nav>
-      <ul>
-        <li>
-          <button
-            onClick={() => {
-              props.onOpenArticle('intro')
-            }}
+      <div className="content">
+        <div className="inner">
+          <h1>Select widget ID</h1>
+          <p>choose widget id</p>
+          <select
+            onChange={props.onSelectChange}
+            defaultValue={widgets[0].value}
           >
-            Intro
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => {
-              props.onOpenArticle('work')
-            }}
-          >
-            Work
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => {
-              props.onOpenArticle('about')
-            }}
-          >
-            About
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => {
-              props.onOpenArticle('contact')
-            }}
-          >
-            Contact
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </header>
-)
+            {widgets.map(item => (
+              <option value={item.value}>
+                {item.name} - {item.value}
+              </option>
+            ))}
+          </select>
+          <h1>Widget language</h1>
+          <p>choose widget language</p>
+          <select onChange={props.onLanguageChange} defaultValue="en-US">
+            {languages.map(item => (
+              <option value={item.value}>{item.name}</option>
+            ))}
+          </select>
+          <br />
+          <h1>Custom widget ID</h1>
+          <div>
+            <div className="half">
+              <label htmlFor="widgetId">widgetId</label>
+              <input type="text" name="widgetId" id="widgetId" ref={ref} />
+            </div>
+            <div className="half">
+              <button
+                onClick={() => {
+                  props.onSelectChange({ target: { value: ref.current.value } })
+                }}
+              >
+                Show widget
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <button
+              onClick={() => {
+                props.onOpenArticle('intro')
+              }}
+            >
+              Intro
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                props.onOpenArticle('work')
+              }}
+            >
+              Work
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                props.onOpenArticle('about')
+              }}
+            >
+              About
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                props.onOpenArticle('contact')
+              }}
+            >
+              Contact
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  )
+}
 
 Header.propTypes = {
   onOpenArticle: PropTypes.func,
